@@ -1,28 +1,32 @@
-import './App.css';
+import QRCode from "react-qr-code";
+import styled from "styled-components";
+
+const Navbar = styled.nav`
+  width: 100%;
+  height: 2rem;
+  background-color: #364156;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+    <Navbar>
+      NavBrand
+    </Navbar>
+    {/* <div> */}
+      {/* // Can be anything instead of `maxWidth` that limits the width. */}
+{/* <div style={{ height: "auto", margin: "0 auto", maxWidth: "20rem", paddingTop: "2rem", width: "100%" }}> */}
+    {/* <QRCode */}
+    {/* size={256} */}
+    {/* style={{ height: "auto", maxWidth: "100%", width: "100%" }} */}
+    {/* value={"adithyan"} */}
+    {/* viewBox={`0 0 256 256`} */}
+    {/* /> */}
+{/* </div> */}
+    {/* </div> */}
+
+</>
+
   );
 }
 

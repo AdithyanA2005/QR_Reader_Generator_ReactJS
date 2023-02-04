@@ -1,5 +1,5 @@
 {
-  "name": "codespaces-react",
+  "name": "adis-qrcode",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,9 @@
     "@testing-library/user-event": "^14.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-qr-code": "^2.0.11",
     "react-scripts": "^5.0.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^3.1.0"
   },
   "scripts": {
