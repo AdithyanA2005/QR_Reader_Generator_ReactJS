@@ -16,5 +16,9 @@ export default function Layout() {
 
 const Main = styled.main`
   flex: 1;
-  height: 100%;
+  margin-top: 107px;
+
+  @media only screen and (min-width: 460px) {
+    margin-top: 67px;
+  }
 `;
