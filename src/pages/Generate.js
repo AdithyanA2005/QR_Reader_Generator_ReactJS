@@ -15,7 +15,7 @@ export default function Generate() {
 
   const handleDownloadBtnClick = () => {
     const qr_canvas = document.getElementById("qr-canvas");
-    var link = document.createElement("a");
+    const link = document.createElement("a");
     link.download = "adiqr-qrcode.png";
     link.href = qr_canvas.toDataURL("image/png");
     link.click();
@@ -32,17 +32,21 @@ export default function Generate() {
         <QrBgWarningQuote />
 
         <DownloadContainer>
-          <QrWrapper>
+          <QrWrapper default_size={default_qrcode_size}>
             <QRCodeCanvas
               id="qr-canvas"
-              size={default_qrcode_size}
+              size={500}
               includeMargin={true}
               value={qrValue}
             />
           </QrWrapper>
 
           <ActionWrapper>
-            <Visualizer qrValue={qrValue} qrSize={qrSize} setQrSize={setQrSize} />
+            <Visualizer
+              qrValue={qrValue}
+              qrSize={qrSize}
+              setQrSize={setQrSize}
+            />
             <DownloadButton onClick={handleDownloadBtnClick}>
               Download your QR-Code
             </DownloadButton>
@@ -60,11 +64,18 @@ const DownloadContainer = styled.div`
   flex-wrap: wrap;
 `;
 const QrWrapper = styled.div`
+  position: relative;
+  display: flex;
   box-sizing: content-box;
-  height: 200px;
-  width: 200px;
+  height: ${props => props.default_size}px;
+  width: ${props => props.default_size}px;
   border: 2px solid black;
   margin: auto;
+
+  canvas {
+    height: 100% !important;
+    width: 100% !important;
+  }
 `;
 const ActionWrapper = styled.div`
   flex-grow: 1;
