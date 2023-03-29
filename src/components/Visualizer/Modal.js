@@ -68,13 +68,18 @@ const ModalWrapper = styled.div`
 `;
 const ModalContainer = styled.div`
   background-color: white;
-  height: 80%;
-  width: 80%;
+  width: 90%;
+  height:90%;
   padding: 1.5rem;
   border: 2px solid black;
   border-radius: 20px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+  @media only screen and (min-width: 600px) {
+    height: 80%;
+    width: 80%;
+  }
 `;
 const CloseBtn = styled.button`
   display: flex;
@@ -115,16 +120,21 @@ const Slider = styled.input`
     ((props.value - props.min) / (props.max - props.min)) * 100 +
     "%, white 100%)"};
 `;
-
 const SizeActions = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-top: 1.5rem;
-`;
 
+  @media only screen and (min-width: 460px) {
+    flex-direction: row;
+  }
+`;
 const ResetBtn = styled.button`
   color: white;
   background-color: black;
+  height: 2.5rem;
   min-width: 10rem;
   padding: 0.8rem 2rem;
   border: 0;
@@ -135,9 +145,10 @@ const ResetBtn = styled.button`
 `;
 const SizeValue = styled.div`
   display: flex;
+  height: 2.5rem;
+  min-width: 10rem;
   border: 2px solid black;
   border-radius: 15px;
-  min-width: 10rem;
   overflow: hidden;
 
   span {
@@ -159,15 +170,3 @@ Modal.propTypes = {
   setModalVisible: PropTypes.func.isRequired,
 };
 
-const SizeInputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-`;
-
-const SizeSelectors = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 0.5rem;
-`;
