@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
+import Generate from "./pages/Generate";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<>Home</>} />
             <Route path="/scan" element={<>Scan</>} />
-            <Route path="/generate" element={<>Generate</>} />
+            <Route path="/generate" element={<Generate />} />
           </Route>
         </Routes>
       </BrowserRouter>
