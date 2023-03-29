@@ -31,10 +31,10 @@ export default function Modal(props) {
 
         <Divider />
 
-        {/* ({props.qrSize} */}
-        {/* <span title="1mm = 3.77px"> pixels</span>) */}
-
-        <Label htmlFor="size-slider">Select size</Label>
+        <Label htmlFor="size-slider">
+          Select size
+          <span title="1mm = 3.77px"> (pixels)</span>
+        </Label>
         <Slider
           max={300}
           min={100}
@@ -69,7 +69,7 @@ const ModalWrapper = styled.div`
 const ModalContainer = styled.div`
   background-color: white;
   width: 90%;
-  height:90%;
+  height: 90%;
   padding: 1.5rem;
   border: 2px solid black;
   border-radius: 20px;
@@ -169,4 +169,3 @@ Modal.propTypes = {
   setQrSize: PropTypes.func.isRequired,
   setModalVisible: PropTypes.func.isRequired,
 };
-
