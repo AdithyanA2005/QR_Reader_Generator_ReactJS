@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import styled from "styled-components";
 import PageContainer from "../components/Containers/PageContainer";
-import Heading from "../components/Headings/Heading";
 import GeneratorInput from "../components/GeneratorInput";
 import Heading from "../components/Headings/Heading";
 import SubHeading from "../components/Headings/SubHeading";
 import QrBgWarningQuote from "../components/QrBgWarningQuote";
+import Visualizer from "../components/Visualizer";
 import { default_qrcode_size } from "../constants";
 
 export default function Generate() {
   const [qrValue, setQrValue] = useState("");
+  const [qrSize, setQrSize] = useState(200);
+
   const handleDownloadBtnClick = () => {
     const qr_canvas = document.getElementById("qr-canvas");
     var link = document.createElement("a");
@@ -28,7 +30,7 @@ export default function Generate() {
 
         <SubHeading title="Download QR-Code" />
         <QrBgWarningQuote />
-        
+
         <DownloadContainer>
           <QrWrapper>
             <QRCodeCanvas
@@ -40,10 +42,11 @@ export default function Generate() {
           </QrWrapper>
 
           <ActionWrapper>
+            <Visualizer qrValue={qrValue} qrSize={qrSize} setQrSize={setQrSize} />
             <DownloadButton onClick={handleDownloadBtnClick}>
               Download your QR-Code
             </DownloadButton>
-          </ActionWrapper>  
+          </ActionWrapper>
         </DownloadContainer>
       </PageContainer>
     </>
@@ -66,7 +69,8 @@ const QrWrapper = styled.div`
 const ActionWrapper = styled.div`
   flex-grow: 1;
   display: flex;
-  align-items: center;
+  gap: 1.5rem;
+  flex-direction: column;
   justify-content: space-around;
 `;
 const DownloadButton = styled.button`
