@@ -1,19 +1,24 @@
+import React, { useState } from "react";
+import { QRCodeCanvas } from "qrcode.react";
 import styled from "styled-components";
 import PageContainer from "../components/Containers/PageContainer";
 import Heading from "../components/Headings/Heading";
 import GeneratorInput from "../components/GeneratorInput";
+import Heading from "../components/Headings/Heading";
 import SubHeading from "../components/Headings/SubHeading";
 import QrBgWarningQuote from "../components/QrBgWarningQuote";
+import { default_qrcode_size } from "../constants";
+
 export default function Generate() {
   const [qrValue, setQrValue] = useState("");
   const handleDownloadBtnClick = () => {
     const qr_canvas = document.getElementById("qr-canvas");
-    var link = document.createElement('a');
-    link.download = 'adiqr-qrcode.png';
-    link.href = qr_canvas.toDataURL("image/png")
+    var link = document.createElement("a");
+    link.download = "adiqr-qrcode.png";
+    link.href = qr_canvas.toDataURL("image/png");
     link.click();
     link.remove();
-  }
+  };
 
   return (
     <>
@@ -26,11 +31,18 @@ export default function Generate() {
         
         <DownloadContainer>
           <QrWrapper>
-            <QRCodeCanvas id="qr-canvas" size={200} includeMargin={true} value={qrValue} />
+            <QRCodeCanvas
+              id="qr-canvas"
+              size={default_qrcode_size}
+              includeMargin={true}
+              value={qrValue}
+            />
           </QrWrapper>
 
           <ActionWrapper>
-            <DownloadButton onClick={handleDownloadBtnClick}>Download your QR-Code</DownloadButton>
+            <DownloadButton onClick={handleDownloadBtnClick}>
+              Download your QR-Code
+            </DownloadButton>
           </ActionWrapper>  
         </DownloadContainer>
       </PageContainer>
