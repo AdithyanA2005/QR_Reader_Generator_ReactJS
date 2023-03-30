@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { QRCodeCanvas } from "qrcode.react";
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { default_qrcode_size } from "../../constants";
@@ -36,8 +37,8 @@ export default function Modal(props) {
           <span title="1mm = 3.77px"> (pixels)</span>
         </Label>
         <Slider
-          max={300}
-          min={100}
+          max={500}
+          min={50}
           value={props.qrSize}
           onChange={(e) => props.setQrSize(e.target.value)}
           type="range"
@@ -51,11 +52,26 @@ export default function Modal(props) {
             <span>{props.qrSize}</span>
           </SizeValue>
         </SizeActions>
+
+        <QrWrapper>
+          <QRCodeCanvas
+            style={{ height: `${props.qrSize}px`, width: `${props.qrSize}px` }}
+            size={props.qrSize}
+            includeMargin={true}
+            value={props.qrValue}
+          />
+        </QrWrapper>
       </ModalContainer>
     </ModalWrapper>
   );
 }
 
+const QrWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+`;
 const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -75,6 +91,7 @@ const ModalContainer = styled.div`
   border-radius: 20px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  overflow: scroll;
 
   @media only screen and (min-width: 600px) {
     height: 80%;

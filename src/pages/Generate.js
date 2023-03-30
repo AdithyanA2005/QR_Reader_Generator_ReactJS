@@ -35,7 +35,7 @@ export default function Generate() {
           <QrWrapper default_size={default_qrcode_size}>
             <QRCodeCanvas
               id="qr-canvas"
-              size={500}
+              size={qrSize}
               includeMargin={true}
               value={qrValue}
             />
