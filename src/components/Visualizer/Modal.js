@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { default_qrcode_size } from "../../constants";
 import Divider from "../Divider";
 import Heading from "../Headings/Heading";
-import { ReactComponent as CloseSVG } from "./xmark-solid.svg";
+import { ReactComponent as CloseSVG } from "../../assets/xmark-solid.svg";
 
 export default function Modal(props) {
   const modalRef = useRef();
