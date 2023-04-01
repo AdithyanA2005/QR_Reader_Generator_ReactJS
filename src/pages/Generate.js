@@ -23,12 +23,15 @@ export default function Generate() {
     link.click();
     link.remove();
   };
+  const handleGeneratorBtnClick = () => {
+    window.scrollBy(0, 160);
+  };
 
   return (
     <>
       <PageContainer>
         <Heading title="Generate QR-Code" />
-        <GeneratorInput />
+        <GeneratorInput handleSubmitBtnClick={handleGeneratorBtnClick}/>
 
         <SubHeading title="Download QR-Code" />
         <QrBgWarningQuote />

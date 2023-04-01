@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink, useNavigate } from "react-router-dom";
 import PageContainer from "../components/Containers/PageContainer";
 import GeneratorInput from "../components/GeneratorInput";
 import specialQr from "../assets/special-qr.png"
-import { NavLink } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+  const handleGeneratorBtnClick = () => navigate("/generate");
+
   return (
     <PageContainer>
       <SectionContainer>
@@ -16,7 +19,7 @@ export default function Home() {
           </HeroHeading>
           <HeroActions>
             <ScanBtn to="/scan">Scan QR Codes</ScanBtn>
-            <GeneratorInput btnText="Generate"/>
+            <GeneratorInput handleSubmitBtnClick={handleGeneratorBtnClick} btnText="Generate"/>
           </HeroActions>
         </HeroContent>
       </SectionContainer>

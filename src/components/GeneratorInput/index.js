@@ -5,9 +5,6 @@ import QrValueContext from "../../context/QrValue/QrValueContext";
 
 export default function GenerateInput(props) {
   const { qrValue, setQrValue } = useContext(QrValueContext);
-  const goBtnOnClickHandle = () => {
-    window.scrollBy(0, 160);
-  };
 
   return (
     <ValueInputWrapper>
@@ -17,7 +14,7 @@ export default function GenerateInput(props) {
         value={qrValue}
         onChange={(e) => setQrValue(e.target.value)}
       />
-      <GoBtn onClick={goBtnOnClickHandle}>{props.btnText}</GoBtn>
+      <GoBtn onClick={props.handleSubmitBtnClick}>{props.btnText}</GoBtn>
     </ValueInputWrapper>
   );
 }
@@ -49,6 +46,7 @@ const GoBtn = styled.button`
 
 GenerateInput.propTypes = {
   btnText: PropTypes.string,
+  handleSubmitBtnClick: PropTypes.func.isRequired,
 };
 
 GenerateInput.defaultProps = {
