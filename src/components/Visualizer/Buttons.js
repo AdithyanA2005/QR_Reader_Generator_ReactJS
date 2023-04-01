@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import QrSizeContext from "../../context/QrSize/QrSizeContext";
 import { ReactComponent as ResetSVG } from "../../assets/rotate-solid.svg";
 import { default_qrcode_size } from "../../constants";
 
 export default function Buttons(props) {
-  const handleResetBtnClick = () => props.setQrSize(default_qrcode_size);
+  const { qrSize, setQrSize } = useContext(QrSizeContext);
+  const handleResetBtnClick = () => setQrSize(default_qrcode_size);
   const handleVisualizeBtnClick = () => props.setModalVisible(true);
 
   return (
     <ButtonsWrap>
       <VisualizeBtn onClick={handleVisualizeBtnClick}>
-        Visualise Size: {props.qrSize}
+        Visualise Size: {qrSize}
       </VisualizeBtn>
       <ResetBtn onClick={handleResetBtnClick}>
         <ResetIcon />
@@ -52,7 +54,5 @@ const ResetIcon = styled(ResetSVG)`
 `;
 
 Buttons.propTypes = {
-  qrSize: PropTypes.number.isRequired,
-  setQrSize: PropTypes.func.isRequired,
   setModalVisible: PropTypes.func.isRequired,
 };

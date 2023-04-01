@@ -8,11 +8,12 @@ import SubHeading from "../components/Headings/SubHeading";
 import QrBgWarningQuote from "../components/QrBgWarningQuote";
 import Visualizer from "../components/Visualizer";
 import QrValueContext from "../context/QrValue/QrValueContext";
+import QrSizeContext from "../context/QrSize/QrSizeContext";
 import { default_qrcode_size } from "../constants";
 
 export default function Generate() {
-  const [qrSize, setQrSize] = useState(200);
   const { qrValue } = useContext(QrValueContext);
+  const { qrSize } = useContext(QrSizeContext);
 
   const handleDownloadBtnClick = () => {
     const qr_canvas = document.getElementById("qr-canvas");
@@ -43,7 +44,7 @@ export default function Generate() {
           </QrWrapper>
 
           <ActionWrapper>
-            <Visualizer qrSize={qrSize} setQrSize={setQrSize} />
+            <Visualizer />
             <DownloadButton onClick={handleDownloadBtnClick}>
               Download your QR-Code
             </DownloadButton>

@@ -5,12 +5,14 @@ import { QRCodeCanvas } from "qrcode.react";
 import Divider from "../Divider";
 import Heading from "../Headings/Heading";
 import QrValueContext from "../../context/QrValue/QrValueContext";
+import QrSizeContext from "../../context/QrSize/QrSizeContext";
 import { ReactComponent as CloseSVG } from "../../assets/xmark-solid.svg";
 import { default_qrcode_size } from "../../constants";
 
 export default function Modal(props) {
   const modalRef = useRef();
   const { qrValue } = useContext(QrValueContext);
+  const { qrSize, setQrSize } = useContext(QrSizeContext);
 
   const handleModalWrapperClick = (e) => {
     if (!modalRef.current.contains(e.target)) {
@@ -21,7 +23,7 @@ export default function Modal(props) {
     props.setModalVisible(false);
   };
   const handleResetBtnClick = () => {
-    props.setQrSize(default_qrcode_size);
+    setQrSize(default_qrcode_size);
   };
 
   return (
@@ -41,8 +43,8 @@ export default function Modal(props) {
         <Slider
           max={500}
           min={50}
-          value={props.qrSize}
-          onChange={(e) => props.setQrSize(e.target.value)}
+          value={qrSize}
+          onChange={(e) => setQrSize(e.target.value)}
           type="range"
           name="size-slider"
         />
@@ -51,14 +53,14 @@ export default function Modal(props) {
           <ResetBtn onClick={handleResetBtnClick}>Reset</ResetBtn>
           <SizeValue>
             <span>Size</span>
-            <span>{props.qrSize}</span>
+            <span>{qrSize}</span>
           </SizeValue>
         </SizeActions>
 
         <QrWrapper>
           <QRCodeCanvas
-            style={{ height: `${props.qrSize}px`, width: `${props.qrSize}px` }}
-            size={props.qrSize}
+            style={{ height: `${qrSize}px`, width: `${qrSize}px` }}
+            size={qrSize}
             includeMargin={true}
             value={qrValue}
           />
@@ -183,7 +185,5 @@ const SizeValue = styled.div`
 `;
 
 Modal.propTypes = {
-  qrSize: PropTypes.number.isRequired,
-  setQrSize: PropTypes.func.isRequired,
   setModalVisible: PropTypes.func.isRequired,
 };
