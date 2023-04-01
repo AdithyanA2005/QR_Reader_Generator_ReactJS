@@ -40,6 +40,7 @@ const GoBtn = styled.button`
   background-color: black;
   border: 0;
   padding: 0 1.1rem;
+  cursor: pointer;
   font-size: 1.1rem;
   letter-spacing: 1px;
 `;
