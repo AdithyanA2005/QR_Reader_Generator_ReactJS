@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 
 export default function PageContainer(props) {
@@ -13,3 +14,7 @@ const Container = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
 `;
+
+PageContainer.propTypes = {
+  children: PropTypes.element.isRequired
+};
