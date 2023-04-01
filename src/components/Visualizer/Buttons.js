@@ -42,9 +42,15 @@ const ResetBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
   cursor: pointer;
   border: 0;
   width: 3rem;
+
+  &:hover {
+    transition: 0.1s ease;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
 `;
 const ResetIcon = styled(ResetSVG)`
   width: 100%;
@@ -52,6 +58,7 @@ const ResetIcon = styled(ResetSVG)`
   padding: 0 0.75rem;
 
   &:hover {
+    transition: 0.1s ease;
     transform: scale(1.05);
   }
 `;
