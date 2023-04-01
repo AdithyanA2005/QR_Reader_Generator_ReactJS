@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
-import { QRCodeCanvas } from "qrcode.react";
 import styled from "styled-components";
+import { QRCodeCanvas } from "qrcode.react";
 import PageContainer from "../components/Containers/PageContainer";
 import GeneratorInput from "../components/GeneratorInput";
 import Heading from "../components/Headings/Heading";
 import SubHeading from "../components/Headings/SubHeading";
 import QrBgWarningQuote from "../components/QrBgWarningQuote";
 import Visualizer from "../components/Visualizer";
-import { default_qrcode_size } from "../constants";
 import QrValueContext from "../context/QrValue/QrValueContext";
+import { default_qrcode_size } from "../constants";
 
 export default function Generate() {
   const [qrSize, setQrSize] = useState(200);

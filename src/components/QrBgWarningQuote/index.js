@@ -5,9 +5,8 @@ export default function QrBgWarningQuote() {
   return (
     <BlockQuote>
       <em>
-        <b>NOTE:</b>
-        {" "}Make sure to always use QR-Code in bright environment so that the
-        blacks are clearly visible
+        <b>NOTE:</b> Make sure to always use QR-Code in bright environment so
+        that the blacks are clearly visible
       </em>
     </BlockQuote>
   );

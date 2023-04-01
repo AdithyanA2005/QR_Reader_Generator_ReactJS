@@ -2,11 +2,11 @@ import React, { useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { QRCodeCanvas } from "qrcode.react";
-import { ReactComponent as CloseSVG } from "../../assets/xmark-solid.svg";
-import { default_qrcode_size } from "../../constants";
 import Divider from "../Divider";
 import Heading from "../Headings/Heading";
 import QrValueContext from "../../context/QrValue/QrValueContext";
+import { ReactComponent as CloseSVG } from "../../assets/xmark-solid.svg";
+import { default_qrcode_size } from "../../constants";
 
 export default function Modal(props) {
   const modalRef = useRef();

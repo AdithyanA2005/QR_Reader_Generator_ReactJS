@@ -1,21 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export default function NavMenu() {
   const navLinks = [
-    {
-      title: "Home",
-      url: "/",
-    },
-    {
-      title: "Scan",
-      url: "/scan",
-    },
-    {
-      title: "Generate",
-      url: "/generate",
-    },
+    { title: "Home", url: "/" },
+    { title: "Scan", url: "/scan" },
+    { title: "Generate", url: "/generate" },
   ];
 
   return (

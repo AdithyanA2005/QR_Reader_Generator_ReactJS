@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 export default function PageContainer(props) {
@@ -16,5 +16,5 @@ const Container = styled.div`
 `;
 
 PageContainer.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };

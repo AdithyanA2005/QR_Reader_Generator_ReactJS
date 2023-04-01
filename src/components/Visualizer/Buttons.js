@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
-import { default_qrcode_size } from "../../constants";
 import { ReactComponent as ResetSVG } from "../../assets/rotate-solid.svg";
+import { default_qrcode_size } from "../../constants";
 
 export default function Buttons(props) {
   const handleResetBtnClick = () => props.setQrSize(default_qrcode_size);
