@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import styled from "styled-components";
 import PageContainer from "../components/Containers/PageContainer";
@@ -8,10 +8,11 @@ import SubHeading from "../components/Headings/SubHeading";
 import QrBgWarningQuote from "../components/QrBgWarningQuote";
 import Visualizer from "../components/Visualizer";
 import { default_qrcode_size } from "../constants";
+import QrValueContext from "../context/QrValue/QrValueContext";
 
 export default function Generate() {
-  const [qrValue, setQrValue] = useState("");
   const [qrSize, setQrSize] = useState(200);
+  const { qrValue } = useContext(QrValueContext);
 
   const handleDownloadBtnClick = () => {
     const qr_canvas = document.getElementById("qr-canvas");
@@ -26,7 +27,7 @@ export default function Generate() {
     <>
       <PageContainer>
         <Heading title="Generate QR-Code" />
-        <GeneratorInput value={qrValue} setValue={setQrValue} />
+        <GeneratorInput />
 
         <SubHeading title="Download QR-Code" />
         <QrBgWarningQuote />
@@ -42,11 +43,7 @@ export default function Generate() {
           </QrWrapper>
 
           <ActionWrapper>
-            <Visualizer
-              qrValue={qrValue}
-              qrSize={qrSize}
-              setQrSize={setQrSize}
-            />
+            <Visualizer qrSize={qrSize} setQrSize={setQrSize} />
             <DownloadButton onClick={handleDownloadBtnClick}>
               Download your QR-Code
             </DownloadButton>
@@ -67,8 +64,8 @@ const QrWrapper = styled.div`
   position: relative;
   display: flex;
   box-sizing: content-box;
-  height: ${props => props.default_size}px;
-  width: ${props => props.default_size}px;
+  height: ${(props) => props.default_size}px;
+  width: ${(props) => props.default_size}px;
   border: 2px solid black;
   margin: auto;
 

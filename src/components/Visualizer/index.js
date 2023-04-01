@@ -11,7 +11,6 @@ export default function Visualizer(props) {
       {modalVisible && (
         <Modal
           setModalVisible={setModalVisible}
-          qrValue={props.qrValue}
           qrSize={props.qrSize}
           setQrSize={props.setQrSize}
         />
@@ -26,7 +25,6 @@ export default function Visualizer(props) {
 }
 
 Visualizer.propTypes = {
-  qrValue: PropTypes.string.isRequired,
   qrSize: PropTypes.number.isRequired,
   setQrSize: PropTypes.func.isRequired,
 };

@@ -1,14 +1,16 @@
+import React, { useContext, useRef } from "react";
 import PropTypes from "prop-types";
-import { QRCodeCanvas } from "qrcode.react";
-import React, { useRef } from "react";
 import styled from "styled-components";
+import { QRCodeCanvas } from "qrcode.react";
+import { ReactComponent as CloseSVG } from "../../assets/xmark-solid.svg";
 import { default_qrcode_size } from "../../constants";
 import Divider from "../Divider";
 import Heading from "../Headings/Heading";
-import { ReactComponent as CloseSVG } from "../../assets/xmark-solid.svg";
+import QrValueContext from "../../context/QrValue/QrValueContext";
 
 export default function Modal(props) {
   const modalRef = useRef();
+  const { qrValue } = useContext(QrValueContext);
 
   const handleModalWrapperClick = (e) => {
     if (!modalRef.current.contains(e.target)) {
@@ -58,7 +60,7 @@ export default function Modal(props) {
             style={{ height: `${props.qrSize}px`, width: `${props.qrSize}px` }}
             size={props.qrSize}
             includeMargin={true}
-            value={props.qrValue}
+            value={qrValue}
           />
         </QrWrapper>
       </ModalContainer>
@@ -181,7 +183,6 @@ const SizeValue = styled.div`
 `;
 
 Modal.propTypes = {
-  qrValue: PropTypes.string.isRequired,
   qrSize: PropTypes.number.isRequired,
   setQrSize: PropTypes.func.isRequired,
   setModalVisible: PropTypes.func.isRequired,

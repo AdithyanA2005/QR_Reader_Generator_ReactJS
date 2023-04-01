@@ -1,15 +1,18 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import QrValueContext from "../../context/QrValue/QrValueContext"
 
 export default function GenerateInput(props) {
+  const {qrValue, setQrValue} = useContext(QrValueContext);
+
   const goBtnOnClickHandle = () => {
     window.scrollBy(0, 160);
   }
 
   return (
     <ValueInputWrapper>
-      <Input type="text" placeholder="Enter QR-Code Value" value={props.value} onChange={(e) => props.setValue(e.target.value)} />
+      <Input type="text" placeholder="Enter QR-Code Value" value={qrValue} onChange={(e) => setQrValue(e.target.value)} />
       <GoBtn onClick={goBtnOnClickHandle}>{props.btnText}</GoBtn>
     </ValueInputWrapper>
   );
@@ -42,8 +45,6 @@ const GoBtn = styled.button`
 
 GenerateInput.propTypes = {
   btnText: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  setValue: PropTypes.func.isRequired,
 };
 
 GenerateInput.defaultProps = {
