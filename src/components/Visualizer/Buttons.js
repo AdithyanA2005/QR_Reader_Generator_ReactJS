@@ -44,10 +44,13 @@ const ResetBtn = styled.button`
   justify-content: center;
   cursor: pointer;
   border: 0;
-  padding: 0 0.75rem;
+  width: 3rem;
 `;
 const ResetIcon = styled(ResetSVG)`
-  width: 1.6rem;
+  width: 100%;
+  height: 100%;
+  padding: 0 0.75rem;
+
   &:hover {
     transform: scale(1.05);
   }
