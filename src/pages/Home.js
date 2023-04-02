@@ -51,11 +51,19 @@ const HeroContent = styled.div`
   backdrop-filter: blur(10px);
 `;
 const HeroHeading = styled.h1`
-  font-size: 4rem;
+  font-size: 2.5rem;
   text-align: center;
 
   span {
     font-family: "Orbitron", sans-serif;
+  }
+
+  @media only screen and (min-width: 650px) {
+    font-size: 4rem;
+  }
+
+  @media only screen and (min-width: 475px) {
+    font-size: 3rem;
   }
 `;
 const HeroActions = styled.div`
