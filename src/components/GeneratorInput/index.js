@@ -21,6 +21,7 @@ export default function GenerateInput(props) {
 
 const ValueInputWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   border: 2px solid black;
   border-radius: 15px;
@@ -38,11 +39,16 @@ const Input = styled.input`
 const GoBtn = styled.button`
   color: white;
   background-color: black;
+  width: 100%;
   border: 0;
-  padding: 0 1.1rem;
+  padding: 0.5rem 1.1rem;
   cursor: pointer;
   font-size: 1.1rem;
   letter-spacing: 1px;
+
+  @media only screen and (min-width: 650px) {
+    width: auto;
+  }
 `;
 
 GenerateInput.propTypes = {

@@ -33,13 +33,15 @@ const SectionContainer = styled.div`
 `;
 const HeroBg = styled.img`
   display: block;
-  height: 34rem;
-  width: 34rem;
+  height: auto;
+  width: 95%;
+  max-height: 34rem;
+  max-width: 34rem;
   margin: auto;
 `;
 const HeroContent = styled.div`
   position: absolute;
-  inset: 5%;
+  inset: 0%;
   display: flex;
   gap: 4rem;
   flex-direction: column;
