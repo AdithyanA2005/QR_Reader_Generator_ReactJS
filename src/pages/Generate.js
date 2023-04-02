@@ -24,7 +24,7 @@ export default function Generate() {
     link.remove();
   };
   const handleGeneratorBtnClick = () => {
-    window.scrollBy(0, 160);
+    window.scrollTo(0, 200);
   };
 
   return (
