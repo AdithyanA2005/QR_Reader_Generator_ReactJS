@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { QRCodeCanvas } from "qrcode.react";
 import PageContainer from "../components/Containers/PageContainer";
@@ -28,33 +28,31 @@ export default function Generate() {
   };
 
   return (
-    <>
-      <PageContainer>
-        <Heading title="Generate QR-Code" />
-        <GeneratorInput handleSubmitBtnClick={handleGeneratorBtnClick}/>
+    <PageContainer>
+      <Heading title="Generate QR-Code" />
+      <GeneratorInput handleSubmitBtnClick={handleGeneratorBtnClick}/>
 
-        <SubHeading title="Download QR-Code" />
-        <QrBgWarningQuote />
+      <SubHeading title="Download QR-Code" />
+      <QrBgWarningQuote />
 
-        <DownloadContainer>
-          <QrWrapper default_size={default_qrcode_size}>
-            <QRCodeCanvas
-              id="qr-canvas"
-              size={qrSize}
-              includeMargin={true}
-              value={qrValue}
-            />
-          </QrWrapper>
+      <DownloadContainer>
+        <QrWrapper default_size={default_qrcode_size}>
+          <QRCodeCanvas
+            id="qr-canvas"
+            size={qrSize}
+            includeMargin={true}
+            value={qrValue}
+          />
+        </QrWrapper>
 
-          <ActionWrapper>
-            <Visualizer />
-            <DownloadButton onClick={handleDownloadBtnClick}>
-              Download your QR-Code
-            </DownloadButton>
-          </ActionWrapper>
-        </DownloadContainer>
-      </PageContainer>
-    </>
+        <ActionWrapper>
+          <Visualizer />
+          <DownloadButton onClick={handleDownloadBtnClick}>
+            Download your QR-Code
+          </DownloadButton>
+        </ActionWrapper>
+      </DownloadContainer>
+    </PageContainer>
   );
 }
 
