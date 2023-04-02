@@ -29,6 +29,7 @@ const FooterText = styled(Link)`
   align-items: center;
   justify-content: space-between;
   letter-spacing: 6px;
+  text-align: center;
   font-size: 1.5rem;
   font-family: "Amatic SC", cursive;
 `;
