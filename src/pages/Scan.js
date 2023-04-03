@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import QrReader from "react-qr-scanner";
 import PageContainer from "../components/Containers/PageContainer";
+import QrResultDialog from "../components/QrResultDialog";
 
 export default function Scan() {
   const delay = 500;
@@ -31,6 +32,7 @@ export default function Scan() {
         />
       )}
       <p>{result}</p>
+      <QrResultDialog text={"Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah "}/>
       </>
     </PageContainer>
   );
