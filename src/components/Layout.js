@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { ToastContainer } from 'react-toastify';
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Layout() {
   return (
@@ -12,6 +14,18 @@ export default function Layout() {
         <Outlet />
       </Main>
       <Footer />
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
