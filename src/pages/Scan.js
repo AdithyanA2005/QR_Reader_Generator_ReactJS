@@ -10,11 +10,10 @@ import { toast } from "react-toastify";
 export default function Scan() {
   const [result, setResult] = useState(null);
   const [scannerErr, setScannerErr] = useState(null);
-
-  const handleOnScan = (data) => {
-    if (data != null) {
-      console.log(data)
-      setResult(data.text)
+  const handleOnScan = (res) => {
+    if (res !== null) {
+      toast.success("Scanning Completed")
+      setResult(res.text);
     }
   };
   const handleOnLoad = () => {
