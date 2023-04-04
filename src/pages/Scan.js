@@ -41,8 +41,8 @@ export default function Scan() {
           </>
         ) : (
           <>
-            <ReScanBtn setResult={setResult} />
             <QrResultDialog text={result} />
+            <ReScanBtn setResult={setResult} />
           </>
         )}
       </>
