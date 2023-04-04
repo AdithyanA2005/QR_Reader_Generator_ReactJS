@@ -1,19 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 import QrReader from "react-qr-scanner";
 import PageContainer from "../components/Containers/PageContainer";
 import QrResultDialog from "../components/QrResultDialog";
 import ReScanBtn from "../components/ReScanBtn";
 import Heading from "../components/Headings/Heading";
+import { toast } from "react-toastify";
 
 export default function Scan() {
-  const [result, setResult] = useState("Hlelo");
+  const [result, setResult] = useState(null);
 
   const handleOnScan = (data) => {
     if (data != null) {
       console.log(data)
       setResult(data.text)
     }
+  };
+  const handleOnLoad = () => {
+    toast('🦄 Show the qrcode infront of the camera', {
+      position: "top-center",
+      hideProgressBar: false,
+    });
   };
   const handleOnError = (err) => {
     console.error(err)
@@ -30,6 +36,7 @@ export default function Scan() {
               style={{ maxWidth: "100%", border: "2px solid black" }}
               onError={handleOnError}
               onScan={handleOnScan}
+              onLoad={handleOnLoad}
             />
           </>
         ) : (
