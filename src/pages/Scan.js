@@ -4,12 +4,15 @@ import QrReader from "react-qr-scanner";
 import PageContainer from "../components/Containers/PageContainer";
 import QrResultDialog from "../components/QrResultDialog";
 import ReScanBtn from "../components/ReScanBtn";
+import ScannerLoader from "../components/ScannerLoader";
 import Heading from "../components/Headings/Heading";
 import { toast } from "react-toastify";
 
 export default function Scan() {
   const [result, setResult] = useState(null);
   const [scannerErr, setScannerErr] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const handleOnScan = (res) => {
     if (res !== null) {
       toast.success("Scanning Completed")
@@ -22,6 +25,7 @@ export default function Scan() {
       hideProgressBar: false,
     });
     setScannerErr(null);
+    setLoading(false);
   };
   const handleOnError = (err) => {
     let message = null;
@@ -30,8 +34,9 @@ export default function Scan() {
     } else if (err.message === "Requested device not found"){
       message = "No camera found to scan qrcodes"
     }
+    toast.error(message);
     setScannerErr(message);
-    toast.error(message)
+    setLoading(true);
   };
 
   return (
@@ -41,13 +46,16 @@ export default function Scan() {
           <>
             <Heading title="Scan QR-Code" />
             {!scannerErr ? (
-              <QrReader
-                delay={500}
-                style={{ maxWidth: "100%", border: "2px solid black", margin: "auto", display: "block" }}
-                onError={handleOnError}
-                onScan={handleOnScan}
-                onLoad={handleOnLoad}
-              />
+              <ScannerWrapper>
+                {loading && <ScannerLoader />}
+                <QrReader
+                  delay={500}
+                  style={{ maxWidth: "100%"}}
+                  onError={handleOnError}
+                  onScan={handleOnScan}
+                  onLoad={handleOnLoad}
+                />
+              </ScannerWrapper>
             ) : (
               <ErrText>{`${scannerErr}, Fix the issue to start scanning or try refreshing the website`} </ErrText>
             )}
@@ -63,6 +71,13 @@ export default function Scan() {
   );
 };
 
+const ScannerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  margin: "auto";
+`;
 const ErrText = styled.p`
   font-size: 1.2rem;
   letter-spacing: 1px;
