@@ -12,56 +12,73 @@ export default function QrResultDialog(props) {
   const handleCopyToClipboard = () => {
     copy(props.text);
     toast("🦄 Copied To Clipboard")
-  }
+  };
   const handleOpenLinkInNewTab = () => {
     window.open(props.text, "_blank", "noreferrer");
-  }
+  };
 
   useEffect(() => {
     setIsValidURL(validator.isURL(props.text));
-  }, [props.text])
+  }, [props.text]);
 
   return (
     <Wrapper>
-      <Text>{props.text}</Text>
-      <Actions>
-        <ActionBtn onClick={handleCopyToClipboard}>
-          <CopySVG />
-          <span>Copy</span>
-        </ActionBtn>
-        {isValidURL && (
-          <ActionBtn onClick={handleOpenLinkInNewTab} >
-            <LinkSVG />
-            <span>Open</span>
+      <ResultHeading>
+        QR-Code content
+      </ResultHeading>
+
+      <Container>
+        <Text>{props.text}</Text>
+        <Actions>
+          <ActionBtn onClick={handleCopyToClipboard}>
+            <CopySVG />
+            <span>Copy</span>
           </ActionBtn>
-        )}
-      </Actions>
+          {isValidURL && (
+            <ActionBtn onClick={handleOpenLinkInNewTab}>
+              <LinkSVG />
+              <span>Open</span>
+            </ActionBtn>
+          )}
+        </Actions>
+      </Container>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.div`
+  border: 2px solid black;
+  border-radius: 15px;
+  overflow: hidden;
+`;
+const ResultHeading = styled.div`
+  color: white;
+  background-color: black;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+`;
+const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 3.5rem;
   padding: 0.3rem 0.75rem;
-  border: 2px solid black;
-  border-radius: 15px;
   transition: 0.3s ease;
   overflow: hidden;
 
   &:hover {
-    // Setting Visiblitity of ActionBtn
-    div {
+    div { // Setting Visiblitity of ActionBtn
       transform: translateX(0);
     }
   }
-`
+`;
 const Text = styled.p`
   font-size: 1rem;
   letter-spacing: 1px;
+  padding-left: 0.45rem;
 `;
 const Actions = styled.div`
   box-sizing: content-box;
@@ -121,4 +138,4 @@ const ActionBtn = styled.button`
 
 QrResultDialog.propTypes = {
   text: PropTypes.string.isRequired,
-}
+};
