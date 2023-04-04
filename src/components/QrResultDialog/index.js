@@ -14,7 +14,11 @@ export default function QrResultDialog(props) {
     toast("🦄 Copied To Clipboard")
   };
   const handleOpenLinkInNewTab = () => {
-    window.open(props.text, "_blank", "noreferrer");
+    if (!props.text.startsWith("https") || !props.text.startsWith("http")) {
+      window.open(`https://${props.text}`, "_blank", "noreferrer");
+    } else {
+      window.open(props.text, "_blank", "noreferrer");
+    }
   };
 
   useEffect(() => {
