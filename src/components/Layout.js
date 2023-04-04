@@ -15,7 +15,7 @@ export default function Layout() {
       </Main>
       <Footer />
       <ToastContainer
-        position="top-left"
+        position="top-right"
         autoClose={3000}
         hideProgressBar
         newestOnTop={false}
