@@ -13,7 +13,9 @@ export default function QrResultDialog(props) {
     copy(props.text);
     toast("🦄 Copied To Clipboard")
   }
-
+  const handleOpenLinkInNewTab = () => {
+    window.open(props.text, "_blank", "noreferrer");
+  }
 
   useEffect(() => {
     setIsValidURL(validator.isURL(props.text));
@@ -28,7 +30,7 @@ export default function QrResultDialog(props) {
           <span>Copy</span>
         </ActionBtn>
         {isValidURL && (
-          <ActionBtn>
+          <ActionBtn onClick={handleOpenLinkInNewTab} >
             <LinkSVG />
             <span>Open</span>
           </ActionBtn>
