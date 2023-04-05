@@ -44,4 +44,5 @@ const NavContainer = styled.div`
 const NavBrand = styled(NavLink)`
   font-family: "Orbitron", sans-serif;
   font-size: 1.75rem;
+  font-weight: bold;
 `;
