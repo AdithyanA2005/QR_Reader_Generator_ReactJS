@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink, useNavigate } from "react-router-dom";
-import PageContainer from "../components/Containers/PageContainer";
+import PageContainer from "../components/PageContainer";
 import GeneratorInput from "../components/GeneratorInput";
 import specialQr from "../assets/special-qr.png"
 

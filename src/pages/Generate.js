@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { QRCodeCanvas } from "qrcode.react";
-import PageContainer from "../components/Containers/PageContainer";
+import PageContainer from "../components/PageContainer";
 import GeneratorInput from "../components/GeneratorInput";
 import Heading from "../components/Headings/Heading";
 import SubHeading from "../components/Headings/SubHeading";

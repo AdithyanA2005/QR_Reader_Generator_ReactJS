@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import QrReader from "react-qr-scanner";
-import PageContainer from "../components/Containers/PageContainer";
+import PageContainer from "../components/PageContainer";
 import QrResultDialog from "../components/QrResultDialog";
 import ReScanBtn from "../components/ReScanBtn";
 import ScannerLoader from "../components/ScannerLoader";
