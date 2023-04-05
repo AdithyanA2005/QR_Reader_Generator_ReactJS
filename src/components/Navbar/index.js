@@ -5,11 +5,12 @@ import NavMenu from "./NavMenu";
 
 export default function Navbar() {
   return (
-    <NavWrapper id="navbar">
+    <NavWrapper>
       <NavContainer>
-        <NavBrand>
-          <NavLink to="/">AdiQR</NavLink>
-        </NavBrand>
+        {/* Logo of the website */}
+        <NavBrand to="/">AdiQR</NavBrand>
+
+        {/* Contain routes to different pages */}
         <NavMenu />
       </NavContainer>
     </NavWrapper>
@@ -40,7 +41,7 @@ const NavContainer = styled.div`
     flex-direction: row;
   }
 `;
-const NavBrand = styled.h1`
+const NavBrand = styled(NavLink)`
   font-family: "Orbitron", sans-serif;
   font-size: 1.75rem;
 `;

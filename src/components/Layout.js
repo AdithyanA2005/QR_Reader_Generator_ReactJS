@@ -9,11 +9,16 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Layout() {
   return (
     <>
+      {/* Navbar of the website */}
       <Navbar />
-      <Main>
-        <Outlet />
-      </Main>
+
+      {/* The Contents of each page will be replced by the Outlet tag */}
+      <Main><Outlet /></Main>
+
+      {/* Footer of the website */}
       <Footer />
+      
+      {/* This will show the react-toastify toast */}
       <ToastContainer
         position="top-right"
         autoClose={3000}

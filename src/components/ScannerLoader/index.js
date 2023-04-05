@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as CameraSVG } from "../../assets/camera-solid.svg";
 
 export default function ScannerLoader() {
+  // This will be shown until video starts
   return (
     <LoaderWrapper>
       <CameraIcon />

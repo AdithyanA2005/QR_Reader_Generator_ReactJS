@@ -12,9 +12,11 @@ import QrSizeContext from "../context/QrSize/QrSizeContext";
 import { default_qrcode_size } from "../constants";
 
 export default function Generate() {
+  // The QrValue and QrSize contexts
   const { qrValue } = useContext(QrValueContext);
   const { qrSize } = useContext(QrSizeContext);
 
+  // This function will download the generated qrcode
   const handleDownloadBtnClick = () => {
     const qr_canvas = document.getElementById("qr-canvas");
     const link = document.createElement("a");
@@ -23,6 +25,8 @@ export default function Generate() {
     link.click();
     link.remove();
   };
+
+  // This function will scroll a bit and take us to the download section
   const handleGeneratorBtnClick = () => {
     window.scrollTo(0, 200);
   };

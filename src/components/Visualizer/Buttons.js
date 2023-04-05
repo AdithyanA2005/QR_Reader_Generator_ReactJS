@@ -6,18 +6,21 @@ import { ReactComponent as ResetSVG } from "../../assets/rotate-solid.svg";
 import { default_qrcode_size } from "../../constants";
 
 export default function Buttons(props) {
+  // The size of the qrcode from context
   const { qrSize, setQrSize } = useContext(QrSizeContext);
+
+  // These will handle the btn clicks
   const handleResetBtnClick = () => setQrSize(default_qrcode_size);
   const handleVisualizeBtnClick = () => props.setModalVisible(true);
 
+  // The Vizualize btn and the reset size btn will be shown as a single row
   return (
     <ButtonsWrap>
-      <VisualizeBtn onClick={handleVisualizeBtnClick}>
-        Visualise Size: {qrSize}
-      </VisualizeBtn>
-      <ResetBtn onClick={handleResetBtnClick}>
-        <ResetIcon />
-      </ResetBtn>
+      {/* This will open the vizualizer modal */}
+      <VisualizeBtn onClick={handleVisualizeBtnClick}>Visualise Size: {qrSize}</VisualizeBtn>
+
+      {/* This will set the qrcode size back to original */}
+      <ResetBtn onClick={handleResetBtnClick}><ResetIcon /></ResetBtn>
     </ButtonsWrap>
   );
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export default function QrBgWarningQuote() {
   return (
+    // This is a blockquote that will inform the user that when they use a qrcode it should have a bright background so that the scanner could easily identify it's contents
     <BlockQuote>
       <em>
         <b>NOTE:</b> Make sure to always use QR-Code in bright environment so

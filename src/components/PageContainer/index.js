@@ -18,6 +18,6 @@ const Container = styled.div`
 PageContainer.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
+    PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
 };

@@ -3,13 +3,10 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 export default function ReScanBtn(props) {
+  // This will set the result to null which inturn trigger rescan
   const handleButtonClick = () => props.setResult(null);
 
-  return (
-    <Button onClick={handleButtonClick}>
-      Rescan QR-Code
-    </Button>
-  );
+  return <Button onClick={handleButtonClick}>Rescan QR-Code</Button>;
 };
 
 const Button = styled.button`

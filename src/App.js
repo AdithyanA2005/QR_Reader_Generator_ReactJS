@@ -7,17 +7,15 @@ import Generate from "./pages/Generate";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/scan" element={<Scan />} />
-            <Route path="/generate" element={<Generate />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/scan" element={<Scan />} />
+          <Route path="/generate" element={<Generate />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -8,36 +8,48 @@ import { ReactComponent as LinkSVG } from "../../assets/link-solid.svg";
 import { toast } from "react-toastify";
 
 export default function QrResultDialog(props) {
+  // State defining whether the result is a valid url or not
   const [isValidURL, setIsValidURL] = useState(false);
+
+  // This function will copyt the result text to the users clipboard and will show a toast
   const handleCopyToClipboard = () => {
     copy(props.text);
-    toast("🦄 Copied To Clipboard")
-  };
-  const handleOpenLinkInNewTab = () => {
-    if (!props.text.startsWith("https") || !props.text.startsWith("http")) {
-      window.open(`https://${props.text}`, "_blank", "noreferrer");
-    } else {
-      window.open(props.text, "_blank", "noreferrer");
-    }
+    toast("🦄 Copied To Clipboard");
   };
 
-  useEffect(() => {
-    setIsValidURL(validator.isURL(props.text));
-  }, [props.text]);
+  // This function will be used to open the result of type url in a new tab
+  const handleOpenLinkInNewTab = () => {
+    let url = props.text;
+
+    // If the url doesn't start with http/https then when the url is opened in a new tab it will be opened as a route of this website. To fix this adding http/https at the start will help
+    if (!props.text.startsWith("https") || !props.text.startsWith("http"))
+      url = `https://${props.text}`;
+
+    // Open the url in a new tab
+    window.open(url, "_blank", "noreferrer");
+  };
+
+  // This will check whether the passed result is a url or not and update the state
+  useEffect(() => setIsValidURL(validator.isURL(props.text)), [props.text]);
 
   return (
     <Wrapper>
-      <ResultHeading>
-        QR-Code content
-      </ResultHeading>
+      {/* Heading of the result box */}
+      <ResultHeading>QR-Code content</ResultHeading>
 
       <Container>
+        {/* The result text */}
         <Text>{props.text}</Text>
+
+        {/* This will be visible on container hover and will contain the copy and open buttons */}
         <Actions>
+          {/* Copy Btn */}
           <ActionBtn onClick={handleCopyToClipboard}>
             <CopySVG />
             <span>Copy</span>
           </ActionBtn>
+
+          {/* Open Btn: only shown if it is a valid url */}
           {isValidURL && (
             <ActionBtn onClick={handleOpenLinkInNewTab}>
               <LinkSVG />
@@ -48,7 +60,7 @@ export default function QrResultDialog(props) {
       </Container>
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div`
   border: 2px solid black;
@@ -74,7 +86,8 @@ const Container = styled.div`
   overflow: hidden;
 
   &:hover {
-    div { // Setting Visiblitity of ActionBtn
+    div {
+      // Setting Visiblitity of ActionBtn
       transform: translateX(0);
     }
   }
@@ -94,7 +107,7 @@ const Actions = styled.div`
   transition: 0.3s ease;
   transform: translateX(100%);
 `;
-const ActionBtn = styled.button` 
+const ActionBtn = styled.button`
   display: flex;
   align-items: center;
   background-color: white;
@@ -102,7 +115,8 @@ const ActionBtn = styled.button`
   min-width: 2.5rem;
   border: 0;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 
   svg {
     fill: rgba(0, 0, 0, 0.6);
@@ -131,7 +145,7 @@ const ActionBtn = styled.button`
     svg {
       transform: scale(1.05);
     }
-    
+
     span {
       box-sizing: content-box;
       width: 3rem;

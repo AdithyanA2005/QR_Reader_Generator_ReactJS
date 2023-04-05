@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-// Footer of the website which will stay below the webpage and will be visible on scroll
 export default function Footer() {
   return (
     <FooterWrapper>

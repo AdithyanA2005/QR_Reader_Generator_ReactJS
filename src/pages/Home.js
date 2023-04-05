@@ -3,23 +3,37 @@ import styled from "styled-components";
 import { NavLink, useNavigate } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
 import GeneratorInput from "../components/GeneratorInput";
-import specialQr from "../assets/special-qr.png"
+import specialQr from "../assets/special-qr.png";
 
 export default function Home() {
   const navigate = useNavigate();
+
+  // This function will navigate to the generator page
   const handleGeneratorBtnClick = () => navigate("/generate");
 
   return (
     <PageContainer>
       <SectionContainer>
+        {/* The QR-Code which is below the HeroContent div */}
         <HeroBg src={specialQr} />
+
+        {/* The Herocontents will show the QrCode in a blurred manner */}
         <HeroContent>
+          {/* This is the main Heading */}
           <HeroHeading>
             <span>AdiQR - </span> Generate & scan qrcodes
           </HeroHeading>
+
+          {/* This will contain actions which will go to scan or generate page */}
           <HeroActions>
+            {/* This button will take you to scan page */}
             <ScanBtn to="/scan">Scan QR Codes</ScanBtn>
-            <GeneratorInput handleSubmitBtnClick={handleGeneratorBtnClick} btnText="Generate"/>
+
+            {/* In this we can pass qrvalue and also click the button to move to the generate page */}
+            <GeneratorInput
+              handleSubmitBtnClick={handleGeneratorBtnClick}
+              btnText="Generate"
+            />
           </HeroActions>
         </HeroContent>
       </SectionContainer>
@@ -90,4 +104,4 @@ const ScanBtn = styled(NavLink)`
   text-align: center;
   padding: 1.2rem 3rem;
   border-radius: 15px;
-`
+`;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export default function NavMenu() {
+  // Links to different pages in the website
   const navLinks = [
     { title: "Home", url: "/" },
     { title: "Scan", url: "/scan" },
