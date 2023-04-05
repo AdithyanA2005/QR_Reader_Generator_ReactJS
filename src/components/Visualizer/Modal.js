@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { QRCodeCanvas } from "qrcode.react";
@@ -32,6 +32,15 @@ export default function Modal(props) {
   const handleResetBtnClick = () => {
     setQrSize(default_qrcode_size);
   };
+
+  // UseEffect will handle event `keydown` and will close modal on `esc-btn` click
+  useEffect(() => {
+    const handleOnKeyDown = (e) => {
+      if (e.code === "Escape") props.setModalVisible(false);
+    };
+    document.addEventListener("keydown", handleOnKeyDown);
+    return () => document.removeEventListener("keydown", handleOnKeyDown);
+  }, []);
 
   return (
     // The wrapper for the main modal which is spread all over the screen and if click is on it other than the modal container then the modal will close
