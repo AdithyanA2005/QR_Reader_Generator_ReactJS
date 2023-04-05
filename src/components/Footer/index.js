@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+// Footer of the website which will stay below the webpage and will be visible on scroll
 export default function Footer() {
   return (
     <FooterWrapper>
+      {/* Link which will open my linkedin profile in a new tab */}
       <FooterText
         target="_blank"
         rel="noopener noreferrer"
-        to="https://www.linkedin.com/in/adithyan-a-26b2161b3/"
+        to="https://www.linkedin.com/in/adithyana2005"
       >
         Created By Adithyan A
       </FooterText>
