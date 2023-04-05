@@ -8,6 +8,7 @@ export default function Footer() {
       {/* Link which will open my linkedin profile in a new tab */}
       <FooterText
         target="_blank"
+        title="Open Linked in profile"
         rel="noopener noreferrer"
         to="https://www.linkedin.com/in/adithyana2005"
       >

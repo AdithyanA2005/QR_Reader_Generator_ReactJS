@@ -17,10 +17,10 @@ export default function Buttons(props) {
   return (
     <ButtonsWrap>
       {/* This will open the vizualizer modal */}
-      <VisualizeBtn onClick={handleVisualizeBtnClick}>Visualise Size: {qrSize}</VisualizeBtn>
+      <VisualizeBtn title="Open visualizer modal" onClick={handleVisualizeBtnClick}>Visualise Size: {qrSize}</VisualizeBtn>
 
       {/* This will set the qrcode size back to original */}
-      <ResetBtn onClick={handleResetBtnClick}><ResetIcon /></ResetBtn>
+      <ResetBtn title="Reset qr-code size" onClick={handleResetBtnClick}><ResetIcon /></ResetBtn>
     </ButtonsWrap>
   );
 }

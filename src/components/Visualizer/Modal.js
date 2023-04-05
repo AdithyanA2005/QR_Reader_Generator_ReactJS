@@ -38,7 +38,7 @@ export default function Modal(props) {
     <ModalWrapper onClick={handleModalWrapperClick}>
       <ModalContainer ref={modalRef}>  {/* The main modal container */}
         {/* The close icon will be shown at the top right of the modal container */}
-        <CloseBtn onClick={handleCloseBtnClick}><CloseIcon /></CloseBtn>
+        <CloseBtn title="Close modal" onClick={handleCloseBtnClick}><CloseIcon /></CloseBtn>
 
         {/* The heading which will be shown at the left side */}
         <Heading title="Resize Your QR-Code" />
@@ -62,7 +62,7 @@ export default function Modal(props) {
         {/* A row below the slider */}
         <SizeActions>
           {/* This is button which will reset the qrcode size */}
-          <ResetBtn onClick={handleResetBtnClick}>Reset</ResetBtn>
+          <ResetBtn title="Reset qr-code size" onClick={handleResetBtnClick}>Reset</ResetBtn>
 
           {/* This will show the current qrcode size */}
           <SizeValue>

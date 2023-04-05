@@ -44,14 +44,14 @@ export default function QrResultDialog(props) {
         {/* This will be visible on container hover and will contain the copy and open buttons */}
         <Actions>
           {/* Copy Btn */}
-          <ActionBtn onClick={handleCopyToClipboard}>
+          <ActionBtn title="Copy to clipboard" onClick={handleCopyToClipboard}>
             <CopySVG />
             <span>Copy</span>
           </ActionBtn>
 
           {/* Open Btn: only shown if it is a valid url */}
           {isValidURL && (
-            <ActionBtn onClick={handleOpenLinkInNewTab}>
+            <ActionBtn title="Open link in new tab" onClick={handleOpenLinkInNewTab}>
               <LinkSVG />
               <span>Open</span>
             </ActionBtn>
