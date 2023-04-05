@@ -40,12 +40,15 @@ export default function Modal(props) {
     };
     document.addEventListener("keydown", handleOnKeyDown);
     return () => document.removeEventListener("keydown", handleOnKeyDown);
+    
+    // eslint-disable-next-line
   }, []);
 
   return (
     // The wrapper for the main modal which is spread all over the screen and if click is on it other than the modal container then the modal will close
     <ModalWrapper onClick={handleModalWrapperClick}>
-      <ModalContainer ref={modalRef}>  {/* The main modal container */}
+      {/* The main modal container */}
+      <ModalContainer ref={modalRef}>  
         {/* The close icon will be shown at the top right of the modal container */}
         <CloseBtn title="Close modal" onClick={handleCloseBtnClick}><CloseIcon /></CloseBtn>
 
