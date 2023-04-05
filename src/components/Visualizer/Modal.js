@@ -103,6 +103,7 @@ const QrWrapper = styled.div`
 const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
+
   align-items: center;
   position: fixed;
   inset: 0;
@@ -116,10 +117,10 @@ const ModalContainer = styled.div`
   height: 90%;
   padding: 1.5rem;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 15px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-  overflow: scroll;
+  overflow: auto;
 
   @media only screen and (min-width: 600px) {
     height: 80%;
