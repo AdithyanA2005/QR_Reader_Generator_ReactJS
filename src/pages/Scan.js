@@ -13,20 +13,24 @@ export default function Scan() {
   const [result, setResult] = useState(null);
   const [scannerErr, setScannerErr] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isFirstScan, setIsFirstScan] = useState(true);
 
   const handleOnScan = (res) => {
+    if (isFirstScan) {
+      toast('🦄 Show the qrcode infront of the camera', {
+        position: "top-center",
+        hideProgressBar: false,
+      });
+      setIsFirstScan(false);
+    }
     if (res !== null) {
       toast.success("Scanning Completed")
       setResult(res.text);
     }
   };
   const handleOnLoad = () => {
-    toast('🦄 Show the qrcode infront of the camera', {
-      position: "top-center",
-      hideProgressBar: false,
-    });
-    setScannerErr(null);
     setLoading(false);
+    setScannerErr(null);
   };
   const handleOnError = (err) => {
     let message = null;
