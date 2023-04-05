@@ -2,7 +2,6 @@ import React, { useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { QRCodeCanvas } from "qrcode.react";
-import Divider from "../Divider";
 import Heading from "../Headings/Heading";
 import QrValueContext from "../../context/QrValue/QrValueContext";
 import QrSizeContext from "../../context/QrSize/QrSizeContext";
@@ -119,6 +118,14 @@ const CloseIcon = styled(CloseSVG)`
     transform: scale(1.07);
     transition: 0.5s ease;
   }
+`;
+const Divider = styled.hr`
+  height: 4px;
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  background-color: black;
 `;
 const Label = styled.label`
   font-size: 1.3rem;
