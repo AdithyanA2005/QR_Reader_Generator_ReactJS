@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import QrReader from "react-qr-scanner";
 import PageContainer from "../components/Containers/PageContainer";
@@ -6,6 +6,7 @@ import QrResultDialog from "../components/QrResultDialog";
 import ReScanBtn from "../components/ReScanBtn";
 import ScannerLoader from "../components/ScannerLoader";
 import Heading from "../components/Headings/Heading";
+import {isMobile} from 'react-device-detect';
 import { toast } from "react-toastify";
 
 export default function Scan() {
@@ -54,6 +55,13 @@ export default function Scan() {
                   onError={handleOnError}
                   onScan={handleOnScan}
                   onLoad={handleOnLoad}
+                  constraints={
+                    isMobile
+                    ? { video: { facingMode: { exact: `environment` }}}
+                    : undefined
+                  }
+
+
                 />
               </ScannerWrapper>
             ) : (
