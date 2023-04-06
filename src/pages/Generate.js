@@ -52,7 +52,7 @@ export default function Generate() {
 
           {/* Qr-Preview download button cover */}
           <DownloadCover>
-            <CoverDownloadBtn title="Download qr-code"/>
+            <CoverDownloadBtn title="Download qr-code" onClick={handleDownloadBtnClick} />
           </DownloadCover>
         </QrWrapper>
 
