@@ -95,7 +95,6 @@ const QrWrapper = styled.div`
     /* DownloadCover */
     div {
       inset:0;
-      border-radius: 0;
     }
   }
 `;
@@ -105,10 +104,9 @@ const DownloadCover = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 300%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3px);
-  transition: 1s ease;
+  transition: 0.3s ease;
 `;
 const CoverDownloadBtn = styled.button`
   height: 25%;
