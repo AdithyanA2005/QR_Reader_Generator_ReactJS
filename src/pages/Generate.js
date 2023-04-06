@@ -9,6 +9,7 @@ import QrBgWarningQuote from "../components/QrBgWarningQuote";
 import Visualizer from "../components/Visualizer";
 import QrValueContext from "../context/QrValue/QrValueContext";
 import QrSizeContext from "../context/QrSize/QrSizeContext";
+import downloadSVG from "../assets/download-solid.svg";
 import { default_qrcode_size } from "../constants";
 
 export default function Generate() {
@@ -34,12 +35,13 @@ export default function Generate() {
   return (
     <PageContainer>
       <Heading title="Generate QR-Code" />
-      <GeneratorInput handleSubmitBtnClick={handleGeneratorBtnClick}/>
+      <GeneratorInput handleSubmitBtnClick={handleGeneratorBtnClick} />
 
       <SubHeading title="Download QR-Code" />
       <QrBgWarningQuote />
 
       <DownloadContainer>
+        {/* The qrcode preview */}
         <QrWrapper default_size={default_qrcode_size}>
           <QRCodeCanvas
             id="qr-canvas"
@@ -47,10 +49,19 @@ export default function Generate() {
             includeMargin={true}
             value={qrValue}
           />
+
+          {/* Qr-Preview download button cover */}
+          <DownloadCover>
+            <CoverDownloadBtn title="Download qr-code"/>
+          </DownloadCover>
         </QrWrapper>
 
+        {/* Action btns to change qr-code size and download qr-code */}
         <ActionWrapper>
+          {/* Visualizer modal with trigger Btn */}
           <Visualizer />
+
+          {/* Qr-code download button */}
           <DownloadButton onClick={handleDownloadBtnClick}>
             Download your QR-Code
           </DownloadButton>
@@ -79,6 +90,33 @@ const QrWrapper = styled.div`
     height: 100% !important;
     width: 100% !important;
   }
+
+  &:hover {
+    /* DownloadCover */
+    div {
+      inset:0;
+      border-radius: 0;
+    }
+  }
+`;
+const DownloadCover = styled.div`
+  position: absolute;
+  inset: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 300%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  transition: 1s ease;
+`;
+const CoverDownloadBtn = styled.button`
+  height: 25%;
+  width: 25%;
+  cursor: pointer;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  mask-image: url(${downloadSVG});
 `;
 const ActionWrapper = styled.div`
   flex-grow: 1;
