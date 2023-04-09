@@ -4,12 +4,16 @@ import styled from "styled-components";
 import QrValueContext from "../../context/QrValue/QrValueContext";
 
 export default function GenerateInput(props) {
-  const { qrValue, setQrValue } = useContext(QrValueContext);  // QrValue Context
   // QrValue Context
   const { qrValue, setQrValue } = useContext(QrValueContext);  
 
   // Changes the QrValue state context as the input value changes
   const handleInputValueChange = (e) => setQrValue(e.target.value);  // Handle input value change
+
+  // If the `Enter` key is pressed in the input then the submit button onclick function will be executed
+  const handleInputOnKeyDown = (e) => { 
+    if (e.key === "Enter") props.handleSubmitBtnClick();
+  }
 
   return (
     <ValueInputWrapper>
@@ -19,6 +23,7 @@ export default function GenerateInput(props) {
         value={qrValue}
         placeholder="Enter QR-Code Value"
         onChange={handleInputValueChange}
+        onKeyDown={handleInputOnKeyDown} 
       />
 
       {/* This button will have default text of `Go` and will take btn text and onclick func as prop*/}
