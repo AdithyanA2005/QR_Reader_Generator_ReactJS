@@ -5,6 +5,10 @@ import QrValueContext from "../../context/QrValue/QrValueContext";
 
 export default function GenerateInput(props) {
   const { qrValue, setQrValue } = useContext(QrValueContext);  // QrValue Context
+  // QrValue Context
+  const { qrValue, setQrValue } = useContext(QrValueContext);  
+
+  // Changes the QrValue state context as the input value changes
   const handleInputValueChange = (e) => setQrValue(e.target.value);  // Handle input value change
 
   return (
@@ -12,8 +16,8 @@ export default function GenerateInput(props) {
       {/* This input will alter the qrcode value context */}
       <Input
         type="text"
-        placeholder="Enter QR-Code Value"
         value={qrValue}
+        placeholder="Enter QR-Code Value"
         onChange={handleInputValueChange}
       />
 
