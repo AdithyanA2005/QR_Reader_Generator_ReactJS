@@ -16,5 +16,4 @@ services:
           target: /app
           action: sync
     volumes:
-      - .:/app
       - /app/node_modules
