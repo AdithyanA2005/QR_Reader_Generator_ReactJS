@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import QrReader from "react-qr-scanner";
 import PageContainer from "../components/PageContainer";
@@ -6,7 +6,7 @@ import QrResultDialog from "../components/QrResultDialog";
 import ReScanBtn from "../components/ReScanBtn";
 import ScannerLoader from "../components/ScannerLoader";
 import Heading from "../components/Headings/Heading";
-import {isMobile} from 'react-device-detect';
+import { isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 
 export default function Scan() {
@@ -24,9 +24,9 @@ export default function Scan() {
 
   // The function will handle the qrcode scanning
   const handleOnScan = (res) => {
-    // This will show a toast just when scanning starts 
+    // This will show a toast just when scanning starts
     if (isFirstScan) {
-      toast('🦄 Show the qrcode infront of the camera', {
+      toast("🦄 Show the qrcode infront of the camera", {
         position: "top-center",
         hideProgressBar: false,
       });
@@ -35,7 +35,7 @@ export default function Scan() {
 
     // This will set result to the qrcode value when scanning is successfull
     if (res !== null) {
-      toast.success("Scanning Completed")
+      toast.success("Scanning Completed");
       setResult(res.text);
     }
   };
@@ -49,8 +49,10 @@ export default function Scan() {
   // This function will be executed if any scanning error occurs
   const handleOnError = (err) => {
     let message = null;
-    if (err.message === "Permission denied") message = "Please enable camera permission to scan qrcodes";
-    else if (err.message === "Requested device not found") message = "No camera found to scan qrcodes"
+    if (err.message === "Permission denied")
+      message = "Please enable camera permission to scan qrcodes";
+    else if (err.message === "Requested device not found")
+      message = "No camera found to scan qrcodes";
 
     toast.error(message);
     setScannerErr(message);
@@ -68,24 +70,26 @@ export default function Scan() {
                 {loading && <ScannerLoader />}
                 <QrReader
                   delay={500}
-                  style={{ maxWidth: "100%"}}
+                  style={{ maxWidth: "100%" }}
                   onError={handleOnError}
                   onScan={handleOnScan}
                   onLoad={handleOnLoad}
                   constraints={
                     isMobile
-                    ? { video: { facingMode: { exact: `environment` }}}
-                    : undefined
+                      ? { video: { facingMode: { exact: `environment` } } }
+                      : undefined
                   }
                 />
               </ScannerWrapper>
             ) : (
-              <ErrText>{`${scannerErr}, Fix the issue to start scanning or try refreshing the website`} </ErrText>
+              <ErrText>
+                {`${scannerErr}, Fix the issue to start scanning or try refreshing the website`}{" "}
+              </ErrText>
             )}
           </>
         ) : (
           <>
-  {/* This will show the result of the qrcode and the user will be able to copy that result and if the result is a url then the user will be able to open it in a new tab */}
+            {/* This will show the result of the qrcode and the user will be able to copy that result and if the result is a url then the user will be able to open it in a new tab */}
             <QrResultDialog text={result} />
             <ReScanBtn setResult={setResult} />
           </>
@@ -93,7 +97,7 @@ export default function Scan() {
       </>
     </PageContainer>
   );
-};
+}
 
 const ScannerWrapper = styled.div`
   display: flex;
